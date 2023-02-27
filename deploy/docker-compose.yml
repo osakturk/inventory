@@ -1,0 +1,13 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: "mongo:${MONGODB_VERSION}"
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - ./inventory.js:/docker-entrypoint-initdb.d/inventory.js
+volumes:
+  axonserver:
+  mongodb:
+  redis:
