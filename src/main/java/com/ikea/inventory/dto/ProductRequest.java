@@ -16,7 +16,4 @@ public class ProductRequest {
         return products;
     }
 
-    public void setProducts(List<ProductRequestElement> products) {
-        this.products = products;
-    }
 }

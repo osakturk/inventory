@@ -14,8 +14,8 @@ object TestFactory {
     private val ORDER_DATE = Instant.now()
     private val PRODUCT_ARTICLE = listOf(ProductArticle("ArticleId",3),ProductArticle("ArticleId2",5))
     private val WRONG_PRODUCT_ARTICLE = listOf(ProductArticle("ArticleId",123),ProductArticle("ArticleId2",51))
-    private val PRODUCT_REQUEST_ELEMENT = ProductRequestElement("ProductName","13", PRODUCT_ARTICLE)
-    private val WRONG_PRODUCT_REQUEST_ELEMENT = ProductRequestElement("ProductName","12", WRONG_PRODUCT_ARTICLE)
+    private val PRODUCT_REQUEST_ELEMENT = ProductRequestElement("ProductName", PRODUCT_ARTICLE)
+    private val WRONG_PRODUCT_REQUEST_ELEMENT = ProductRequestElement("ProductName", WRONG_PRODUCT_ARTICLE)
     private val PRODUCT = Product(PRODUCT_REQUEST_ELEMENT)
     private val WRONG_PRODUCT = Product(WRONG_PRODUCT_REQUEST_ELEMENT)
     private val STATUS = Status.DELIVERED

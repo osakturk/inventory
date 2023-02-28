@@ -7,9 +7,9 @@ import com.ikea.inventory.model.Status;
 import java.time.Instant;
 
 public class OrderDetails {
-    private Instant deliveryDate;
-    private Status orderStatus;
-    private Product product;
+    private final Instant deliveryDate;
+    private final Status orderStatus;
+    private final Product product;
 
     public OrderDetails(Order order) {
         this.deliveryDate = order.getDeliveryDate();
@@ -21,23 +21,11 @@ public class OrderDetails {
         return deliveryDate;
     }
 
-    public void setDeliveryDate(Instant deliveryDate) {
-        this.deliveryDate = deliveryDate;
-    }
-
     public Status getOrderStatus() {
         return orderStatus;
     }
 
-    public void setOrderStatus(Status orderStatus) {
-        this.orderStatus = orderStatus;
-    }
-
     public Product getProduct() {
         return product;
-    }
-
-    public void setProduct(Product product) {
-        this.product = product;
     }
 }

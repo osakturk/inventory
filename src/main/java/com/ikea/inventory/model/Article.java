@@ -36,7 +36,7 @@ public class Article {
         return stock;
     }
 
-    public void setAvailableStock(Long availableStock) {
+    public void setStock(Long availableStock) {
         this.stock = availableStock;
     }
 }

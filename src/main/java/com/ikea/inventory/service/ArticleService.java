@@ -35,7 +35,7 @@ public class ArticleService {
            if (decreaseAmount > presentedArticle.getStock()){
                throw new EnoughMaterialNotFoundException(ENOUGH_MATERIAL_NOT_FOUND_MESSAGE);
            }
-           presentedArticle.setAvailableStock(presentedArticle.getStock() - decreaseAmount);
+           presentedArticle.setStock(presentedArticle.getStock() - decreaseAmount);
            articleRepository.save(presentedArticle);
         });
     }
