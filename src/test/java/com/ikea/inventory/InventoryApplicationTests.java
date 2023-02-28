@@ -7,7 +7,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 class InventoryApplicationTests {
 
     @Test
-    void contextLoads() {
+    void main() {
+        InventoryApplication.main(new String[] {});
     }
 
 }

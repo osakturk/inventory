@@ -9,11 +9,6 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 @RestControllerAdvice
 public class GeneralExceptionAdvisor extends ResponseEntityExceptionHandler {
 
-    @ExceptionHandler(RuntimeException.class)
-    public ResponseEntity<Object> handle(RuntimeException exception) {
-        return handleBadRequest(exception.getMessage());
-    }
-
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<Object> handle(NotFoundException exception) {
         return handleBadRequest(exception.getMessage());
