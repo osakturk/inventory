@@ -7,6 +7,12 @@ import java.util.List;
 public class ArticleRequest {
     private List<Article> inventory;
 
+    private ArticleRequest(){}
+
+    public ArticleRequest(List<Article> inventory) {
+        this.inventory = inventory;
+    }
+
     public List<Article> getInventory() {
         return inventory;
     }

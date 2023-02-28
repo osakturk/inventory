@@ -14,8 +14,6 @@ import java.net.URI;
 import java.util.List;
 import java.util.Map;
 
-import static com.ikea.inventory.constant.Constants.PRODUCTS_CREATION_MESSAGE;
-
 @RestController
 @RequestMapping("/api/product")
 public class ProductController {
@@ -26,10 +24,9 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<String> createProduct(@RequestBody ProductRequest productRequest){
-        productService.createProduct(productRequest);
-        return ResponseEntity.created(URI.create("/")).body(PRODUCTS_CREATION_MESSAGE);
+        return ResponseEntity.created(URI.create("/")).body(productService.createProduct(productRequest));
     }
 
     @GetMapping

@@ -33,7 +33,7 @@ public class OrderService {
     }
 
     public OrderCreate sell(String productId) {
-        Optional<Product> product = productRepository.findByProductId(productId);
+        Optional<Product> product = productRepository.findById(productId);
         if (product.isEmpty()){
             throw new NotFoundException(PRODUCT_NOT_FOUND_MESSAGE);
         }

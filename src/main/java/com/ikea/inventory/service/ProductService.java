@@ -13,6 +13,7 @@ import java.util.Map;
 
 import static com.ikea.inventory.constant.Constants.ARTICLE_NOT_FOUND_MESSAGE;
 import static com.ikea.inventory.constant.Constants.PRODUCTS;
+import static com.ikea.inventory.constant.Constants.PRODUCTS_CREATION_MESSAGE;
 
 @Service
 public class ProductService {
@@ -25,7 +26,7 @@ public class ProductService {
         this.articleRepository = articleRepository;
     }
 
-    public void createProduct(ProductRequest productRequest) {
+    public String createProduct(ProductRequest productRequest) {
         productRequest.getProducts().forEach( productRequestElement -> {
                     productRequestElement.getArticleList().forEach(productArticle -> {
                         if (!articleRepository.existsById(productArticle.getArticleId())){
@@ -34,6 +35,7 @@ public class ProductService {
                     });
                     productRepository.save(new Product(productRequestElement));
                 });
+        return PRODUCTS_CREATION_MESSAGE;
     }
 
     public Map<String, List<Product>> getProductList() {

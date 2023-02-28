@@ -9,6 +9,14 @@ public class ProductRequestElement {
     private String price;
     private List<ProductArticle> articleList;
 
+    private ProductRequestElement(){}
+
+    public ProductRequestElement(String name, String price, List<ProductArticle> articleList) {
+        this.name = name;
+        this.price = price;
+        this.articleList = articleList;
+    }
+
     public String getName() {
         return name;
     }

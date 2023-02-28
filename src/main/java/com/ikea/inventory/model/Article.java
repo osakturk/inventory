@@ -6,12 +6,14 @@ public class Article {
     @Id
     private String articleId;
     private String name;
-    private Long availableStock;
+    private Long stock;
+
+    private Article(){}
 
     public Article(String articleId, String name, Long stock) {
         this.articleId = articleId;
         this.name = name;
-        this.availableStock = stock;
+        this.stock = stock;
     }
 
     public String getArticleId() {
@@ -30,11 +32,11 @@ public class Article {
         this.name = name;
     }
 
-    public Long getAvailableStock() {
-        return availableStock;
+    public Long getStock() {
+        return stock;
     }
 
     public void setAvailableStock(Long availableStock) {
-        this.availableStock = availableStock;
+        this.stock = availableStock;
     }
 }

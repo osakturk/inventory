@@ -16,10 +16,10 @@ public class Product {
     private String price;
     private List<ProductArticle> productArticleList;
 
+    private Product(){}
     public Product(ProductRequestElement productRequest) {
         this.productId = UUID.randomUUID().toString();
         this.name = productRequest.getName();
-        this.price = productRequest.getPrice();
         this.productArticleList = productRequest.getArticleList();
     }
 

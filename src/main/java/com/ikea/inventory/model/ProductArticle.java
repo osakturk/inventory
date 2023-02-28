@@ -2,7 +2,12 @@ package com.ikea.inventory.model;
 
 public class ProductArticle {
     private String articleId;
-    private Long amount;
+    private Long stock;
+
+    public ProductArticle(String articleId, Long stock) {
+        this.articleId = articleId;
+        this.stock = stock;
+    }
 
     public String getArticleId() {
         return articleId;
@@ -13,10 +18,10 @@ public class ProductArticle {
     }
 
     public Long getAmount() {
-        return amount;
+        return stock;
     }
 
     public void setAmount(Long amount) {
-        this.amount = amount;
+        this.stock = amount;
     }
 }

@@ -8,7 +8,7 @@ public class Constants {
     public static final String ORDER_NOT_FOUND_MESSAGE = "Order doesn't exist. Please check your order id.";
     public static final String PRODUCT_NOT_FOUND_MESSAGE = "Product doesn't exist. Please check product id.";
     public static final String ARTICLE_NOT_FOUND_MESSAGE = "Article doesn't exist. Please check article id.";
-    public static final String ENOUGH_MATERIAL_NOT_FOUND_MESSAGE = "Product doesn't exist. Please check product id.";
+    public static final String ENOUGH_MATERIAL_NOT_FOUND_MESSAGE = "We apologize for shouting this out loud, but we don't have enough material.";
     public static final String ARTICLE_CREATION_MESSAGE = "Articles created successfully.";
     public static final String PRODUCTS_CREATION_MESSAGE = "Products created successfully.";
 
