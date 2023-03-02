@@ -15,7 +15,8 @@ services:
     environment:
       SPRING_APPLICATION_JSON: '{
           "spring.data.mongodb.uri": "mongodb://root:root@mongodb:27017/inventory?authSource=inventory",
-          "spring.jpa.hibernate.ddl-auto" : "create-drop"
+          "spring.jpa.hibernate.ddl-auto" : "create-drop",
+          "springdoc.swagger-ui.path" : "/swagger-ui.html"
         }'
     volumes:
       - .m2:/root/.m2
