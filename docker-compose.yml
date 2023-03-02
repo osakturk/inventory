@@ -7,7 +7,10 @@ services:
       - "127.0.0.1:27017:27017"
     volumes:
       - ./inventory.js:/docker-entrypoint-initdb.d/inventory.js
+    container_name: inventory-mongodb
   app:
+    depends_on:
+      - mongodb
     build: ./
     restart: on-failure
     ports:
@@ -22,5 +25,6 @@ services:
       - .m2:/root/.m2
     stdin_open: true
     tty: true
+    container_name: inventory-spring-boot
 volumes:
   mongodb:
