@@ -1,0 +1,25 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: "mongo:${MONGODB_VERSION}"
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - ./inventory.js:/docker-entrypoint-initdb.d/inventory.js
+  app:
+    build: ./
+    restart: on-failure
+    ports:
+      - "${SPRING_LOCAL_PORT}:${SPRING_DOCKER_PORT}"
+    environment:
+      SPRING_APPLICATION_JSON: '{
+          "spring.data.mongodb.uri": "mongodb://root:root@mongodb:27017/inventory?authSource=inventory",
+          "spring.jpa.hibernate.ddl-auto" : "create-drop"
+        }'
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+volumes:
+  mongodb:
