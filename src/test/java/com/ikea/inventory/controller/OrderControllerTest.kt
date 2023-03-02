@@ -24,7 +24,7 @@ class OrderControllerTest {
     @Test
     fun `sell product`() {
         val productId = "ProductId"
-        Mockito.`when`(orderService.sell(productId)).thenReturn(getOrderCreate())
+        Mockito.`when`(orderService.create(productId)).thenReturn(getOrderCreate())
 
         val result = mockMvc
             .perform(
@@ -36,7 +36,7 @@ class OrderControllerTest {
     @Test
     fun `get order details`() {
         val orderId = "OrderId"
-        Mockito.`when`(orderService.getOrderDetails(orderId)).thenReturn(getOrderDetails())
+        Mockito.`when`(orderService.getDetails(orderId)).thenReturn(getOrderDetails())
 
         val result = mockMvc
             .perform(MockMvcRequestBuilders.get("/api/order").param("orderId", orderId)).andReturn()

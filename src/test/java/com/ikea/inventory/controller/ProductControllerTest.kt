@@ -25,7 +25,7 @@ class ProductControllerTest {
 
     @Test
     fun `create product`() {
-        Mockito.`when`(productService.createProduct(getProductRequest())).thenReturn(Constants.PRODUCTS_CREATION_MESSAGE)
+        Mockito.`when`(productService.create(getProductRequest())).thenReturn(Constants.PRODUCTS_CREATION_MESSAGE)
 
         val result = mockMvc
             .perform(
@@ -42,7 +42,7 @@ class ProductControllerTest {
 
     @Test
     fun `get product list`() {
-        Mockito.`when`(productService.getProductList()).thenReturn(getProductList())
+        Mockito.`when`(productService.getList()).thenReturn(getProductList())
 
         val result = mockMvc
             .perform(MockMvcRequestBuilders.get("/api/product")).andReturn()

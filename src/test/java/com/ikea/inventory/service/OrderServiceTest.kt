@@ -36,7 +36,7 @@ class OrderServiceTest {
         every { articleRepository.save(getOptionalArticle().get()) } returns getOptionalArticle().get()
         every { orderRepository.save(any()) } returns getCreatedOrder()
 
-        val response = orderService.sell(productId)
+        val response = orderService.create(productId)
 
         assertEquals(getOrderCreate(getCreatedOrder().orderId).message(), response.message())
     }
@@ -47,7 +47,7 @@ class OrderServiceTest {
         every { productRepository.findById(productId) } returns Optional.empty()
 
         assertFailsWith<NotFoundException>(Constants.PRODUCT_NOT_FOUND_MESSAGE) {
-            orderService.sell(productId)
+            orderService.create(productId)
         }
     }
 
@@ -59,7 +59,7 @@ class OrderServiceTest {
         every { articleRepository.save(getOptionalArticle().get()) } returns getOptionalArticle().get()
 
         assertFailsWith<EnoughMaterialNotFoundException>(Constants.ENOUGH_MATERIAL_NOT_FOUND_MESSAGE) {
-            orderService.sell(productId)
+            orderService.create(productId)
         }
     }
 
@@ -70,7 +70,7 @@ class OrderServiceTest {
             orderRepository.findById(any())
         } returns getOptionalOrder()
 
-        val response = orderService.getOrderDetails(orderId)
+        val response = orderService.getDetails(orderId)
 
         assertEquals(getOptionalOrder().get().orderStatus, response.orderStatus)
         assertEquals(getOptionalOrder().get().deliveryDate, response.deliveryDate)
@@ -85,7 +85,7 @@ class OrderServiceTest {
         } returns Optional.empty()
 
         assertFailsWith<NotFoundException>(Constants.ORDER_NOT_FOUND_MESSAGE) {
-            orderService.getOrderDetails(orderId)
+            orderService.getDetails(orderId)
         }
     }
 }

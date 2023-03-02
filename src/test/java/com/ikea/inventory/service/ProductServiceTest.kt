@@ -1,12 +1,10 @@
 package com.ikea.inventory.service
 
-import com.ikea.inventory.TestFactory
 import com.ikea.inventory.TestFactory.getProductList
 import com.ikea.inventory.TestFactory.getProductRequest
 import com.ikea.inventory.TestFactory.getSavedProduct
 import com.ikea.inventory.TestFactory.getSavedProductList
 import com.ikea.inventory.constant.Constants
-import com.ikea.inventory.exception.EnoughMaterialNotFoundException
 import com.ikea.inventory.exception.NotFoundException
 import com.ikea.inventory.repository.ArticleRepository
 import com.ikea.inventory.repository.ProductRepository
@@ -30,7 +28,7 @@ class ProductServiceTest {
             productRepository.save(any())
         } returns getSavedProduct()
 
-        val response = productService.createProduct(getProductRequest())
+        val response = productService.create(getProductRequest())
 
         Assertions.assertEquals(Constants.PRODUCTS_CREATION_MESSAGE, response)
     }
@@ -40,7 +38,7 @@ class ProductServiceTest {
         every { articleRepository.existsById(any()) } returns false
 
         assertFailsWith<NotFoundException>(Constants.ARTICLE_NOT_FOUND_MESSAGE) {
-            productService.createProduct(getProductRequest())
+            productService.create(getProductRequest())
         }
     }
 
@@ -50,7 +48,7 @@ class ProductServiceTest {
             productRepository.findAll()
         } returns getSavedProductList()
 
-        val response = productService.productList
+        val response = productService.list
 
         assertEquals(getProductList(), response)
     }

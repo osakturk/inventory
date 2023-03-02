@@ -25,12 +25,12 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> createProduct(@RequestBody ProductRequest productRequest){
-        return ResponseEntity.created(URI.create("/")).body(productService.createProduct(productRequest));
+    public ResponseEntity<String> create(@RequestBody ProductRequest productRequest){
+        return ResponseEntity.created(URI.create("/")).body(productService.create(productRequest));
     }
 
     @GetMapping
-    public ResponseEntity<Map<String, List<Product>>> productList(){
-        return ResponseEntity.ok().body(productService.getProductList());
+    public ResponseEntity<Map<String, List<Product>>> list(){
+        return ResponseEntity.ok().body(productService.getList());
     }
 }

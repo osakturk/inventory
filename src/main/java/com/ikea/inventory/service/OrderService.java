@@ -32,17 +32,17 @@ public class OrderService {
         this.articleService = articleService;
     }
 
-    public OrderCreate sell(String productId) {
+    public OrderCreate create(String productId) {
         Optional<Product> product = productRepository.findById(productId);
         if (product.isEmpty()){
             throw new NotFoundException(PRODUCT_NOT_FOUND_MESSAGE);
         }
-        product.get().getProductArticleList().forEach(productArticle -> articleService.decreaseArticleStock(productArticle.getArticleId(), productArticle.getAmount()));
+        product.get().getProductArticleList().forEach(productArticle -> articleService.decreaseStock(productArticle.getArticleId(), productArticle.getAmount()));
         Order savedOrder = orderRepository.save(new Order(Instant.now(), Instant.now().plus(1, ChronoUnit.DAYS), Status.PENDING, product.get()));
         return new OrderCreate(String.format(ORDER_SUCCESSFUL_MESSAGE, savedOrder.getOrderId()));
     }
 
-    public OrderDetails getOrderDetails(String orderId){
+    public OrderDetails getDetails(String orderId){
         Optional<Order> order = orderRepository.findById(orderId);
         if (order.isEmpty()){
             throw new NotFoundException(ORDER_NOT_FOUND_MESSAGE);

@@ -25,7 +25,7 @@ class ArticleServiceTest {
             articleRepository.insert(getArticleRequest().inventory)
         } returns getArticleRequest().inventory
 
-        val response = articleService.createArticles(getArticleRequest())
+        val response = articleService.create(getArticleRequest())
 
         assertEquals(Constants.ARTICLE_CREATION_MESSAGE, response)
     }
@@ -37,7 +37,7 @@ class ArticleServiceTest {
             articleRepository.findAll()
         } returns getArticleList()
 
-        val response = articleService.getArticleList()
+        val response = articleService.getList()
 
         assertEquals(getArticleList(), response)
     }
@@ -55,7 +55,7 @@ class ArticleServiceTest {
             articleRepository.save(getOptionalArticle().get())
         } returns getOptionalArticle().get()
 
-        articleService.decreaseArticleStock(articleId, decreaseAmount)
+        articleService.decreaseStock(articleId, decreaseAmount)
 
         assertEquals(getOptionalArticle().get().stock, availableStock - decreaseAmount)
     }
@@ -70,7 +70,7 @@ class ArticleServiceTest {
         } returns getOptionalArticle()
 
         assertFailsWith<EnoughMaterialNotFoundException>(Constants.ENOUGH_MATERIAL_NOT_FOUND_MESSAGE) {
-            articleService.decreaseArticleStock(articleId, decreaseAmount)
+            articleService.decreaseStock(articleId, decreaseAmount)
         }
     }
 }

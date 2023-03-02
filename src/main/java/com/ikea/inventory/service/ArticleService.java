@@ -21,15 +21,15 @@ public class ArticleService {
     }
 
 
-    public String createArticles(ArticleRequest articleRequest){
+    public String create(ArticleRequest articleRequest){
         articleRepository.insert(articleRequest.getInventory());
         return ARTICLE_CREATION_MESSAGE;
     }
 
-    public List<Article> getArticleList(){
+    public List<Article> getList(){
         return articleRepository.findAll();
     }
-    public void decreaseArticleStock(String articleId, Long decreaseAmount){
+    public void decreaseStock(String articleId, Long decreaseAmount){
         Optional<Article> article = articleRepository.findById(articleId);
         article.ifPresent(presentedArticle -> {
            if (decreaseAmount > presentedArticle.getStock()){

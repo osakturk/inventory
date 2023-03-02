@@ -26,7 +26,7 @@ public class ProductService {
         this.articleRepository = articleRepository;
     }
 
-    public String createProduct(ProductRequest productRequest) {
+    public String create(ProductRequest productRequest) {
         productRequest.getProducts().forEach( productRequestElement -> {
                     productRequestElement.getArticleList().forEach(productArticle -> {
                         if (!articleRepository.existsById(productArticle.getArticleId())){
@@ -38,7 +38,7 @@ public class ProductService {
         return PRODUCTS_CREATION_MESSAGE;
     }
 
-    public Map<String, List<Product>> getProductList() {
+    public Map<String, List<Product>> getList() {
         Map<String, List<Product>> resultMap = new HashMap<>();
         resultMap.put(PRODUCTS, productRepository.findAll());
         return resultMap;

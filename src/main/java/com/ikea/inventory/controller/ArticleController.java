@@ -24,12 +24,12 @@ public class ArticleController {
     }
 
     @PostMapping
-    public ResponseEntity<String> createArticles(@RequestBody ArticleRequest request){
-        return ResponseEntity.created(URI.create("/")).body(articleService.createArticles(request));
+    public ResponseEntity<String> create(@RequestBody ArticleRequest request){
+        return ResponseEntity.created(URI.create("/")).body(articleService.create(request));
     }
 
     @GetMapping
-    public ResponseEntity<List<Article>> articleList(){
-        return ResponseEntity.ok().body(articleService.getArticleList());
+    public ResponseEntity<List<Article>> list(){
+        return ResponseEntity.ok().body(articleService.getList());
     }
 }

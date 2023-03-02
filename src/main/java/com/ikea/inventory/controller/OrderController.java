@@ -23,12 +23,12 @@ public class OrderController {
     }
 
     @PostMapping
-    public ResponseEntity<OrderCreate> sell(@RequestParam("productId") String productId){
-        return ResponseEntity.created(URI.create("/")).body(orderService.sell(productId));
+    public ResponseEntity<OrderCreate> create(@RequestParam("productId") String productId){
+        return ResponseEntity.created(URI.create("/")).body(orderService.create(productId));
     }
 
     @GetMapping
-    public ResponseEntity<OrderDetails> orderTrack(@RequestParam("orderId") String orderId){
-        return ResponseEntity.ok().body(orderService.getOrderDetails(orderId));
+    public ResponseEntity<OrderDetails> track(@RequestParam("orderId") String orderId){
+        return ResponseEntity.ok().body(orderService.getDetails(orderId));
     }
 }

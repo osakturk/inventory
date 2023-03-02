@@ -28,7 +28,7 @@ class ArticleControllerTest {
 
     @Test
     fun `create article`() {
-        Mockito.`when`(articleService.createArticles(articleRequest)).thenReturn(Constants.ARTICLE_CREATION_MESSAGE)
+        Mockito.`when`(articleService.create(articleRequest)).thenReturn(Constants.ARTICLE_CREATION_MESSAGE)
 
         val result = mockMvc
             .perform(
@@ -45,7 +45,7 @@ class ArticleControllerTest {
 
     @Test
     fun `get article list`() {
-        Mockito.`when`(articleService.articleList).thenReturn(arrayListOf())
+        Mockito.`when`(articleService.list).thenReturn(arrayListOf())
 
         val result = mockMvc
             .perform(MockMvcRequestBuilders.get("/api/article")).andReturn()
