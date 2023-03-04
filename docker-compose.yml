@@ -1,0 +1,30 @@
+version: "3.7"
+
+services:
+  mongodb:
+    image: "mongo:${MONGODB_VERSION}"
+    ports:
+      - "127.0.0.1:27017:27017"
+    volumes:
+      - ./inventory.js:/docker-entrypoint-initdb.d/inventory.js
+    container_name: inventory-mongodb
+  app:
+    depends_on:
+      - mongodb
+    build: ./
+    restart: on-failure
+    ports:
+      - "${SPRING_LOCAL_PORT}:${SPRING_DOCKER_PORT}"
+    environment:
+      SPRING_DATA_MONGODB_URI: mongodb://root:root@mongodb:27017/inventory?authSource=inventory
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: dbtestpassword
+      SPRING_JPA_HIBERNATE_DDL-AUTO: create-drop
+      SPRINGDOC_SWAGGER-UI_PATH: "/swagger-ui.html"
+    volumes:
+      - .m2:/root/.m2
+    stdin_open: true
+    tty: true
+    container_name: inventory-spring-boot
+volumes:
+  mongodb:
