@@ -1,9 +1,13 @@
+# Maven
+FROM maven:3-openjdk-17-slim AS builder
+WORKDIR /app
+COPY pom.xml .
+RUN mvn -e -B dependency:resolve
+COPY src ./src
+RUN mvn clean -e -B package
+
+# Java
 FROM eclipse-temurin:17.0.3_7-jdk
-
-COPY target/inventory.jar /
-
-EXPOSE 8080
-
-ADD target/inventory.jar /inventory.jar
-
+WORKDIR /app
+COPY --from=builder /app/target/inventory.jar .
 CMD exec java -jar inventory.jar
