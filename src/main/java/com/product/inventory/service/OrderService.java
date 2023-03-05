@@ -29,6 +29,7 @@ public class OrderService {
         this.articleService = articleService;
     }
 
+    //We can create an order using this method. Additionally, we trigger the article service from this method.
     public OrderCreate create(String productId) {
         Optional<Product> product = productRepository.findById(productId);
         if (product.isEmpty()){
@@ -39,6 +40,7 @@ public class OrderService {
         return new OrderCreate(String.format(Constants.ORDER_SUCCESSFUL_MESSAGE, savedOrder.getOrderId()));
     }
 
+    //This method returns order details
     public OrderDetails getDetails(String orderId){
         Optional<Order> order = orderRepository.findById(orderId);
         if (order.isEmpty()){

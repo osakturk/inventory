@@ -22,10 +22,12 @@ public class ProductService {
         this.productRepository = productRepository;
         this.articleRepository = articleRepository;
     }
-
+    //We can create a product using this method
     public String create(ProductRequest productRequest) {
         productRequest.getProducts().forEach( productRequestElement -> {
                     productRequestElement.getArticleList().forEach(productArticle -> {
+                        //We check the article repository for available material.
+                        // If there are no materials, we throw an exception
                         if (!articleRepository.existsById(productArticle.getArticleId())){
                             throw new NotFoundException(Constants.ARTICLE_NOT_FOUND_MESSAGE);
                         }
@@ -35,6 +37,8 @@ public class ProductService {
         return Constants.PRODUCTS_CREATION_MESSAGE;
     }
 
+
+    //This method returns a list of products
     public Map<String, List<Product>> getList() {
         Map<String, List<Product>> resultMap = new HashMap<>();
         resultMap.put(Constants.PRODUCTS, productRepository.findAll());
