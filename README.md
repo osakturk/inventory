@@ -22,6 +22,32 @@ For further reference, please consider the following sections:
 * [Mockito](https://javadoc.io/doc/org.mockito/mockito-core/latest/org/mockito/Mockito.html)
 * [Test Containers](https://www.testcontainers.org)
 
+### Usage Reasons
+#### Mongodb
+* MongoDB has become one of the most wanted databases in the world because it makes it easy for developers to store, 
+manage, and retrieve data when creating applications with most programming languages. MongoDB also makes it easy for developers 
+to store structured or unstructured data.
+
+#### Kotlin
+* Fever bugs
+  * If you code in Kotlin, the chances of making bugs are extremely less compared to other complex programming languages. 
+  The reason is very simple and straight forward. Because it is easy to learn and only involves less code to accomplish the same thing, 
+  the number of bugs will be also less. So, if you are a Kotlin programmer, the time you spend on fixing bugs will be extremely low compared 
+  to other languages. Definitely a catch for experienced developers who frequently spend hours figuring out the source of a bug.
+* Productivity Improvement
+  * Because it is easy to learn and maintain, there is a huge productivity boost compared to Java and other programming languages
+* Null-aware type system allows complete control over this aspect of JVM programming and prevents a lot of typical annoying mistakes.
+* Inline arguments make String generation so much less painful, because you don’t need to use either arcane formatting strings nor awkward concatenation.
+* With default method argument, you don't need to create a bunch of constructors in every other case
+* Getter/Setter
+
+#### MockK
+* Easy to understand method coverages and returns
+* Final result can be returned by specifying complete chain of calls. No need to mock each and every method output.
+* Suppose offer is of different types and its return type is generic then `hint` will help to give a hint to mockk 
+which version we actually are looking for
+* A very exciting thing about Mockk is, objects can be mocked.
+
 ### Values
 * Mongo DB is running on 27017 port. You should use this syntax for connection:
 * Inventory application is running on [8080](http://localhost:8080) port
