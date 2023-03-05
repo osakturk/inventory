@@ -1,5 +1,10 @@
 # Product Inventory Project
 
+## Description
+* The project is to implement warehouse software. This software holds articles. The articles contain an id, a name, and available stock. The warehouse software also has products, products are made of different articles. Products have a name,
+  price, and a list of articles from which they are made from with a quantity. With the product id, we can create an order. If the order
+  created successfully the software should change the articles stock amount and create an order record in the database
+
 ### Reference Documentation
 For further reference, please consider the following sections:
 
@@ -19,43 +24,31 @@ For further reference, please consider the following sections:
 
 ### Values
 * Mongo DB is running on 27017 port. You should use this syntax for connection:
-  ```bash
-  mongodb://username:password@host:port/databasename
-  ```
 * Inventory application is running on [8080](http://localhost:8080) port
 
 
 ### Containerizing and Deployment
 * In this project we have 1 docker file and 1 docker compose file.
 * Docker file includes maven download, maven build command and java jar file build
-  * You have a option for maven manual build. You have to go to the project root path and run the following command:
-  ```bash
-    mvn clean install
-  ```
-  * This command will build your application and create a jar file that you can use manually.
+  * You also have an option for maven manual build.
 * [Docker compose file](docker-compose.yml) includes 2 different images
 * The first image is Mongo DB. Mongo DB image needs 2 different files.
   * [.env](.env) file includes mongo db version, container name and spring boot ports.
   * [inventory.js](inventory.js) file includes database user creation
 * The second image is Inventory Application image created by the [DockerFile](Dockerfile)
   * Application image depends on Mongo DB instance. If the application gets an error, it will restart the application by itself
-  * You can add another environment variable to environment tab. You can use like an [application.properties](src/main/resources/application.properties) element
+  * You can add another environment variable to environment tab. 
+  You can use like an [application.properties](src/main/resources/application.properties) element
 * If you want to run this project on a docker container, you just need to run this command:
   ```bash 
     docker compose up -d
   ```
-* Stop the container(s) using the following command:
-  ```bash 
-    docker compose down
-  ```
-* Delete all containers using the following command:
-  ```bash 
-    docker rm -f $(docker ps -a -q)
-  ```
-* Delete all volumes using the following command:
-  ```bash 
-    docker volume rm $(docker volume ls -q)
-  ```
+### Class Diagram
+![class diagram](src/main/resources/inventory-class-diagram.png)
+
+### Spring Diagram
+![spring diagram](src/main/resources/inventory-spring-diagram.png)
+
 
 ### Swagger
 * After startup, you can access the Swagger documentation site with [this](http://localhost:8080/swagger-ui.html) URL
