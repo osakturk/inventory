@@ -44,6 +44,10 @@ For further reference, please consider the following sections:
   ```bash 
     docker compose up -d
   ```
+* If you want to shut it down, you need to run this command:
+  ```bash 
+    docker compose down -d
+  ```
 
 ### Swagger
 * After startup, you can access the Swagger documentation site with [this](http://localhost:8080/swagger-ui.html) URL
