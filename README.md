@@ -33,7 +33,7 @@ For further reference, please consider the following sections:
     mvn clean install
   ```
   * This command will build your application and create a jar file that you can use manually.
-* Docker compose file includes 2 different images
+* [Docker compose file](docker-compose.yml) includes 2 different images
 * The first image is Mongo DB. Mongo DB image needs 2 different files.
   * [.env](.env) file includes mongo db version, container name and spring boot ports.
   * [inventory.js](inventory.js) file includes database user creation
