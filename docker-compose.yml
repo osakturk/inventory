@@ -17,8 +17,8 @@ services:
       - "${SPRING_LOCAL_PORT}:${SPRING_DOCKER_PORT}"
     environment:
       SPRING_DATA_MONGODB_URI: mongodb://root:root@mongodb:27017/inventory?authSource=inventory
-      SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: dbtestpassword
+      SPRING_DATASOURCE_USERNAME: root
+      SPRING_DATASOURCE_PASSWORD: root
       SPRING_JPA_HIBERNATE_DDL-AUTO: create-drop
       SPRINGDOC_SWAGGER-UI_PATH: "/swagger-ui.html"
     volumes:
