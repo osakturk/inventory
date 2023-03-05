@@ -1,0 +1,148 @@
+{
+	"info": {
+		"_postman_id": "5e19436b-57aa-41c0-94cd-3328e5954c4c",
+		"name": "Inventory Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19050787"
+	},
+	"item": [
+		{
+			"name": "Get Articles",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "Create Article",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"inventory\": [\n        {\n            \"articleId\": \"1\",\n            \"name\":\"article 1\",\n            \"stock\":123\n        },\n        {\n            \"articleId\": \"2\",\n            \"name\":\"article 2\",\n            \"stock\":124\n        },\n        {\n            \"articleId\": \"3\",\n            \"name\":\"article 3\",\n            \"stock\":121\n        },\n        {\n            \"articleId\": \"4\",\n            \"name\":\"article 4\",\n            \"stock\":122\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/articles",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"articles"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Products",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"products\": [\n        {\n            \"name\": \"1\",\n            \"articleList\": [\n                {\n                    \"articleId\":\"1\",\n                    \"stock\":12\n                },\n                {\n                    \"articleId\": \"2\",\n                    \"stock\":14\n                },\n                {\n                    \"articleId\": \"3\",\n                    \"stock\":11\n                }\n            ]\n        }\n    ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Products",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/products",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"products"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Order",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/orders?productId=ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "productId",
+							"value": "ID"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Order Detail",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/api/orders?orderId=ORDER_ID",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"orders"
+					],
+					"query": [
+						{
+							"key": "orderId",
+							"value": "ORDER_ID"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
