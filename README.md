@@ -48,13 +48,13 @@ For further reference, please consider the following sections:
   ```bash 
     docker compose down -d
   ```
-* Delete all volumes using the following command:
-  ```bash 
-    docker volume rm $(docker volume ls -q)
-  ```
 * Delete all containers using the following command:
   ```bash 
     docker rm -f $(docker ps -a -q)
+  ```
+* Delete all volumes using the following command:
+  ```bash 
+    docker volume rm $(docker volume ls -q)
   ```
 
 ### Swagger
