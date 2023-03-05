@@ -39,7 +39,6 @@ to store structured or unstructured data.
 * Null-aware type system allows complete control over this aspect of JVM programming and prevents a lot of typical annoying mistakes.
 * Inline arguments make String generation so much less painful, because you don’t need to use either arcane formatting strings nor awkward concatenation.
 * With default method argument, you don't need to create a bunch of constructors in every other case
-* Getter/Setter
 
 #### MockK
 * Easy to understand method coverages and returns
