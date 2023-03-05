@@ -48,7 +48,7 @@ which version we actually are looking for
 * A very exciting thing about Mockk is, objects can be mocked.
 
 ### Values
-* Mongo DB is running on 27017 port. You should use this syntax for connection:
+* Mongo DB is running on 27017 port.
 * Inventory application is running on [8080](http://localhost:8080) port
 
 
