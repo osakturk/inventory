@@ -46,7 +46,7 @@ For further reference, please consider the following sections:
   ```
 * Stop the container(s) using the following command:
   ```bash 
-    docker compose down -d
+    docker compose down
   ```
 * Delete all containers using the following command:
   ```bash 
