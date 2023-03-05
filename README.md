@@ -63,3 +63,11 @@ For further reference, please consider the following sections:
 ### Postman Collection Url
 * After startup, you should import [this](src/main/resources/Inventory%20Collection.postman_collection.json) file to Postman Application.
   With these requests, you can successfully create products, articles and orders.
+
+### Next Steps
+* My next step would be adding more endpoint to control whole application. After endpoint enhanced, 
+I would create nice UI/UX designed frontend side. It would be separated project and I would use React.js (```v1.1.0```)
+* After creation process of frontend, I would create Authorization and Authentication part. we would be able to
+  log in via Jwt bearer token as a result we would create data safety.(```v1.2.0```)
+* Kubernetes, AWS integration and pipeline would be great for deployment. We can have automated deployment(```v2.0.0```)
+
