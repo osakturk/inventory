@@ -44,9 +44,17 @@ For further reference, please consider the following sections:
   ```bash 
     docker compose up -d
   ```
-* If you want to shut it down, you need to run this command:
+* Stop the container(s) using the following command:
   ```bash 
     docker compose down -d
+  ```
+* Delete all volumes using the following command:
+  ```bash 
+    docker volume rm $(docker volume ls -q)
+  ```
+* Delete all containers using the following command:
+  ```bash 
+    docker rm -f $(docker ps -a -q)
   ```
 
 ### Swagger
