@@ -65,7 +65,7 @@ For further reference, please consider the following sections:
   With these requests, you can successfully create products, articles and orders.
 
 ### Next Steps
-* My next step would be adding more endpoint to control whole application. After endpoint enhanced, 
+* My next step would be adding more endpoints to control whole application. After endpoint enhanced, 
 I would create nice UI/UX designed frontend side. It would be separated project and I would use React.js (```v1.1.0```)
 * After creation process of frontend, I would create Authorization and Authentication part. we would be able to
   log in via Jwt bearer token as a result we would create data safety.(```v1.2.0```)
