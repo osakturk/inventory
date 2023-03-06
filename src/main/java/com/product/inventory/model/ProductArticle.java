@@ -1,11 +1,11 @@
 package com.product.inventory.model;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-@Document
 public class ProductArticle {
 
+    @Field("art_id")
     @JsonProperty("art_id")
     private String articleId;
 

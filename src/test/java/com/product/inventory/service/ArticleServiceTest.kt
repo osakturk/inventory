@@ -5,6 +5,7 @@ import com.product.inventory.TestFactory.getArticleRequest
 import com.product.inventory.TestFactory.getOptionalArticle
 import com.product.inventory.constant.Constants
 import com.product.inventory.exception.EnoughMaterialNotFoundException
+import com.product.inventory.exception.ExistException
 import com.product.inventory.repository.ArticleRepository
 import io.mockk.every
 import io.mockk.mockk
@@ -35,6 +36,21 @@ class ArticleServiceTest {
 
     @Test
     @Order(2)
+    fun `create article failed`() {
+        every {
+            articleRepository.insert(getArticleRequest().inventory)
+        } returns getArticleRequest().inventory
+        every {
+            articleRepository.existsByArticleId(any())
+        } returns true
+
+        assertFailsWith<ExistException>(Constants.ARTICLE_EXIST_MESSAGE) {
+            articleService.create(getArticleRequest())
+        }
+    }
+
+    @Test
+    @Order(3)
     fun `get article list`() {
         every {
             articleRepository.findAll()
@@ -46,7 +62,7 @@ class ArticleServiceTest {
     }
 
     @Test
-    @Order(3)
+    @Order(4)
     fun `decrease article stock count successfully`() {
         val articleId = "ArticleId"
         val decreaseAmount = 1L
@@ -64,7 +80,7 @@ class ArticleServiceTest {
     }
 
     @Test
-    @Order(4)
+    @Order(5)
     fun `decrease article stock count failed`() {
         val articleId = "ArticleId"
         val decreaseAmount = 11L

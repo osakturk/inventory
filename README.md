@@ -57,7 +57,11 @@ which version we actually are looking for
     docker compose up -d
   ```
 * It will create mongodb, mongodb-seed and spring boot application
-### Containerizing
+
+### Run the Tests
+* If you run the docker compose yaml file it will automatically run the application tests. 
+You can see the results on your terminal
+### Docker
 * In this project we have 1 docker file and 1 docker compose file.
 * Docker file includes maven download, maven build command and java jar file build
   * You also have an option for maven manual build.
