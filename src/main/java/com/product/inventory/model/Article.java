@@ -1,17 +1,26 @@
 package com.product.inventory.model;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
+@Document
 public class Article {
     @Id
+    private String id;
+    @Field(name = "art_id")
+    @JsonProperty("art_id")
     private String articleId;
+    @JsonProperty("name")
     private String name;
-    private Long stock;
 
-    private Article(){}
+    @JsonProperty("stock")
+    private String stock;
 
-    public Article(String articleId, String name, Long stock) {
-        this.articleId = articleId;
+    public Article() {}
+
+    public Article(String name, String stock) {
         this.name = name;
         this.stock = stock;
     }
@@ -32,11 +41,11 @@ public class Article {
         this.name = name;
     }
 
-    public Long getStock() {
+    public String getStock() {
         return stock;
     }
 
-    public void setStock(Long availableStock) {
+    public void setStock(String availableStock) {
         this.stock = availableStock;
     }
 }

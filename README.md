@@ -51,8 +51,13 @@ which version we actually are looking for
 * Mongo DB is running on 27017 port.
 * Inventory application is running on [8080](http://localhost:8080) port
 
-
-### Containerizing and Deployment
+### Run
+* If you want to run this project on a docker container, you just need to run this command:
+  ```bash 
+    docker compose up -d
+  ```
+* It will create mongodb, mongodb-seed and spring boot application
+### Containerizing
 * In this project we have 1 docker file and 1 docker compose file.
 * Docker file includes maven download, maven build command and java jar file build
   * You also have an option for maven manual build.
@@ -64,10 +69,6 @@ which version we actually are looking for
   * Application image depends on Mongo DB instance. If the application gets an error, it will restart the application by itself
   * You can add another environment variable to environment tab. 
   You can use like an [application.properties](src/main/resources/application.properties) element
-* If you want to run this project on a docker container, you just need to run this command:
-  ```bash 
-    docker compose up -d
-  ```
 ### Class Diagram
 ![class diagram](src/main/resources/inventory-class-diagram.png)
 

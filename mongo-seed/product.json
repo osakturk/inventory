@@ -1,0 +1,36 @@
+[
+  {
+    "name": "Dinning Table",
+    "contain_articles": [
+      {
+        "art_id": "1",
+        "stock": "4"
+      },
+      {
+        "art_id": "2",
+        "stock": "8"
+      },
+      {
+        "art_id": "4",
+        "stock": "1"
+      }
+    ]
+  },
+  {
+    "name": "Dining Chair",
+    "contain_articles": [
+      {
+        "art_id": "1",
+        "stock": "12"
+      },
+      {
+        "art_id": "2",
+        "stock": "14"
+      },
+      {
+        "art_id": "3",
+        "stock": "11"
+      }
+    ]
+  }
+]

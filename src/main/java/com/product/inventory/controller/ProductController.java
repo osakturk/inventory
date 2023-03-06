@@ -1,6 +1,6 @@
 package com.product.inventory.controller;
 
-import com.product.inventory.dto.ProductRequest;
+import com.product.inventory.dto.ProductDTO;
 import com.product.inventory.model.Product;
 import com.product.inventory.service.ProductService;
 import org.springframework.http.ResponseEntity;
@@ -25,8 +25,8 @@ public class ProductController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> create(@RequestBody ProductRequest productRequest){
-        return ResponseEntity.created(URI.create("/")).body(productService.create(productRequest));
+    public ResponseEntity<String> create(@RequestBody ProductDTO productDTO){
+        return ResponseEntity.created(URI.create("/")).body(productService.create(productDTO));
     }
 
     @GetMapping

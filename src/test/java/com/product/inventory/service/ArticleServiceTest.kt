@@ -24,6 +24,9 @@ class ArticleServiceTest {
         every {
             articleRepository.insert(getArticleRequest().inventory)
         } returns getArticleRequest().inventory
+        every {
+            articleRepository.existsByArticleId(any())
+        } returns false
 
         val response = articleService.create(getArticleRequest())
 
@@ -57,7 +60,7 @@ class ArticleServiceTest {
 
         articleService.decreaseStock(articleId, decreaseAmount)
 
-        assertEquals(getOptionalArticle().get().stock, availableStock - decreaseAmount)
+        assertEquals(getOptionalArticle().get().stock.toLong(), availableStock.toLong() - decreaseAmount)
     }
 
     @Test
