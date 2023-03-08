@@ -19,6 +19,11 @@ public class GeneralExceptionAdvisor extends ResponseEntityExceptionHandler {
         return handleBadRequest(exception.getMessage());
     }
 
+    @ExceptionHandler(ExistException.class)
+    public ResponseEntity<Object> handle(ExistException exception) {
+        return handleBadRequest(exception.getMessage());
+    }
+
     private ResponseEntity<Object> handleBadRequest(String s) {
         return new ResponseEntity<>(s, HttpStatus.BAD_REQUEST);
     }

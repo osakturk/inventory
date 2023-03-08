@@ -2,7 +2,7 @@ package com.product.inventory.controller
 
 import com.google.gson.Gson
 import com.product.inventory.constant.Constants
-import com.product.inventory.dto.ArticleRequest
+import com.product.inventory.dto.ArticleDTO
 import com.product.inventory.service.ArticleService
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -21,7 +21,7 @@ class ArticleControllerTest {
     @Autowired
     private lateinit var mockMvc: MockMvc
 
-    private var articleRequest: ArticleRequest = mockk()
+    private var articleRequest: ArticleDTO = mockk()
 
     @MockBean
     lateinit var articleService: ArticleService
@@ -32,7 +32,7 @@ class ArticleControllerTest {
 
         val result = mockMvc
             .perform(
-                MockMvcRequestBuilders.post("/api/article")
+                MockMvcRequestBuilders.post("/api/articles")
                     .content(
                         Gson().toJson(
                             articleRequest
@@ -48,7 +48,7 @@ class ArticleControllerTest {
         Mockito.`when`(articleService.list).thenReturn(arrayListOf())
 
         val result = mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/article")).andReturn()
+            .perform(MockMvcRequestBuilders.get("/api/articles")).andReturn()
         assertEquals(result.response.status, HttpStatus.OK.value())
     }
 }

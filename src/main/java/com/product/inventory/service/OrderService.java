@@ -32,18 +32,18 @@ public class OrderService {
     //We can create an order using this method. Additionally, we trigger the article service from this method.
     public OrderCreate create(String productId) {
         Optional<Product> product = productRepository.findById(productId);
-        if (product.isEmpty()){
+        if (product.isEmpty()) {
             throw new NotFoundException(Constants.PRODUCT_NOT_FOUND_MESSAGE);
         }
-        product.get().getProductArticleList().forEach(productArticle -> articleService.decreaseStock(productArticle.getArticleId(), productArticle.getAmount()));
+        product.get().getProductArticleList().forEach(productElement -> articleService.decreaseStock(productElement.getArticleId(), Long.parseLong(productElement.getStock())));
         Order savedOrder = orderRepository.save(new Order(Instant.now(), Instant.now().plus(1, ChronoUnit.DAYS), Status.PENDING, product.get()));
         return new OrderCreate(String.format(Constants.ORDER_SUCCESSFUL_MESSAGE, savedOrder.getOrderId()));
     }
 
     //This method returns order details
-    public OrderDetails getDetails(String orderId){
+    public OrderDetails getDetails(String orderId) {
         Optional<Order> order = orderRepository.findById(orderId);
-        if (order.isEmpty()){
+        if (order.isEmpty()) {
             throw new NotFoundException(Constants.ORDER_NOT_FOUND_MESSAGE);
         }
         return new OrderDetails(order.get());

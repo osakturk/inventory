@@ -28,7 +28,7 @@ class OrderControllerTest {
 
         val result = mockMvc
             .perform(
-                MockMvcRequestBuilders.post("/api/order").param("productId", productId)
+                MockMvcRequestBuilders.post("/api/orders").param("productId", productId)
             ).andReturn()
         Assertions.assertEquals(result.response.status, HttpStatus.CREATED.value())
     }
@@ -39,7 +39,7 @@ class OrderControllerTest {
         Mockito.`when`(orderService.getDetails(orderId)).thenReturn(getOrderDetails())
 
         val result = mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/order").param("orderId", orderId)).andReturn()
+            .perform(MockMvcRequestBuilders.get("/api/orders").param("orderId", orderId)).andReturn()
         Assertions.assertEquals(result.response.status, HttpStatus.OK.value())
     }
 }

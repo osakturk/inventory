@@ -6,6 +6,7 @@ public class Constants {
     public static final String PRODUCTS = "products";
     public static final String ORDER_SUCCESSFUL_MESSAGE = "Order successfully created. Your order id: %s";
     public static final String ARTICLE_CREATION_MESSAGE = "Articles created successfully.";
+    public static final String ARTICLE_EXIST_MESSAGE = "Article already exist.";
     public static final String PRODUCTS_CREATION_MESSAGE = "Products created successfully.";
 
     // ERROR MESSAGES

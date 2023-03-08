@@ -1,6 +1,6 @@
 package com.product.inventory.controller;
 
-import com.product.inventory.dto.ArticleRequest;
+import com.product.inventory.dto.ArticleDTO;
 import com.product.inventory.model.Article;
 import com.product.inventory.service.ArticleService;
 import org.springframework.http.ResponseEntity;
@@ -24,8 +24,8 @@ public class ArticleController {
     }
 
     @PostMapping
-    public ResponseEntity<String> create(@RequestBody ArticleRequest request){
-        return ResponseEntity.created(URI.create("/")).body(articleService.create(request));
+    public ResponseEntity<String> create(@RequestBody ArticleDTO article){
+        return ResponseEntity.created(URI.create("/")).body(articleService.create(article));
     }
 
     @GetMapping

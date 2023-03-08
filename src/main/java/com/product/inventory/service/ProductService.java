@@ -1,7 +1,7 @@
 package com.product.inventory.service;
 
 import com.product.inventory.constant.Constants;
-import com.product.inventory.dto.ProductRequest;
+import com.product.inventory.dto.ProductDTO;
 import com.product.inventory.exception.NotFoundException;
 import com.product.inventory.model.Product;
 import com.product.inventory.repository.ProductRepository;
@@ -22,18 +22,19 @@ public class ProductService {
         this.productRepository = productRepository;
         this.articleRepository = articleRepository;
     }
+
     //We can create a product using this method
-    public String create(ProductRequest productRequest) {
-        productRequest.getProducts().forEach( productRequestElement -> {
-                    productRequestElement.getArticleList().forEach(productArticle -> {
-                        //We check the article repository for available material.
-                        // If there are no materials, we throw an exception
-                        if (!articleRepository.existsById(productArticle.getArticleId())){
-                            throw new NotFoundException(Constants.ARTICLE_NOT_FOUND_MESSAGE);
-                        }
-                    });
-                    productRepository.save(new Product(productRequestElement));
-                });
+    public String create(ProductDTO productDTO) {
+        productDTO.getProductList().forEach(productElement -> {
+            productElement.getProductArticleList().forEach(productArticle -> {
+                //We check the article repository for available material.
+                // If there are no materials, we throw an exception
+                if (!articleRepository.existsByArticleId(productArticle.getArticleId())) {
+                    throw new NotFoundException(Constants.ARTICLE_NOT_FOUND_MESSAGE);
+                }
+            });
+            productRepository.save(new Product(productElement.getName(), productElement.getProductArticleList()));
+        });
         return Constants.PRODUCTS_CREATION_MESSAGE;
     }
 

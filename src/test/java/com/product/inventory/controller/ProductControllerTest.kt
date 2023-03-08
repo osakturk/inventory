@@ -29,7 +29,7 @@ class ProductControllerTest {
 
         val result = mockMvc
             .perform(
-                MockMvcRequestBuilders.post("/api/product")
+                MockMvcRequestBuilders.post("/api/products")
                     .content(
                         Gson().toJson(
                             getProductRequest()
@@ -45,7 +45,7 @@ class ProductControllerTest {
         Mockito.`when`(productService.getList()).thenReturn(getProductList())
 
         val result = mockMvc
-            .perform(MockMvcRequestBuilders.get("/api/product")).andReturn()
+            .perform(MockMvcRequestBuilders.get("/api/products")).andReturn()
         assertEquals(result.response.status, HttpStatus.OK.value())
     }
 }

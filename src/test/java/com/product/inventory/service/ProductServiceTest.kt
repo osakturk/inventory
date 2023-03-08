@@ -23,7 +23,7 @@ class ProductServiceTest {
 
     @Test
     fun `create products successfully`() {
-        every { articleRepository.existsById(any()) } returns true
+        every { articleRepository.existsByArticleId(any()) } returns true
         every {
             productRepository.save(any())
         } returns getSavedProduct()
@@ -35,7 +35,7 @@ class ProductServiceTest {
 
     @Test
     fun `create products failed due to article existence`() {
-        every { articleRepository.existsById(any()) } returns false
+        every { articleRepository.existsByArticleId(any()) } returns false
 
         assertFailsWith<NotFoundException>(Constants.ARTICLE_NOT_FOUND_MESSAGE) {
             productService.create(getProductRequest())
